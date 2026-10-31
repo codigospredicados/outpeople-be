@@ -36,7 +36,7 @@ Registe a conta na app. No repositório e ambiente do serviço **API**, execute:
 npm run admin -- administrador@exemplo.pt
 ```
 
-Depois inicie sessão neste backoffice. O comando deve usar a mesma base de dados da API que está a servir o backoffice; no Railway use o ambiente do serviço API com o volume montado.
+Depois inicie sessão neste backoffice. O comando deve usar a mesma ligação MongoDB e `MONGODB_DB` da API que está a servir o backoffice; no Railway use o ambiente do serviço API.
 
 Membros podem autenticar-se mas não consultar a lista de utilizadores. A API valida as permissões em todos os pedidos administrativos. Em domínios diferentes, a sessão da app não é partilhada com o backoffice; inicie sessão em cada interface.
 
