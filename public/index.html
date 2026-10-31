@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OurPeople — Backoffice</title>
+  <link rel="icon" href="/be/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/be/base.css">
+  <link rel="stylesheet" href="/be/styles.css">
+  <script src="/be/app.js" type="module"></script>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="/be/"><span class="brand-mark" aria-hidden="true">op.</span> ourpeople <span class="backoffice-label">BACKOFFICE</span></a><a class="small" href="/app/">Abrir app ↗</a></header>
+  <main class="admin-main">
+    <section id="login-panel" class="card login-card" aria-labelledby="login-title">
+      <p class="eyebrow">GESTÃO DA COMUNIDADE</p><h1 id="login-title">Bem-vindo ao backoffice.</h1><p class="muted">Inicie sessão com uma conta de administrador.</p>
+      <form id="login-form">
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="username" maxlength="254" required></div>
+        <div class="field"><label for="password">Palavra-passe</label><input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required></div>
+        <p id="login-status" class="status" role="status"></p>
+        <button id="login" type="submit" class="button primary">Iniciar sessão ↗</button>
+      </form>
+      <div class="divider"><span>ou continuar com</span></div>
+      <div class="socials"><a id="google" class="button social" href="/api/auth/google/start?target=be" aria-disabled="true">Google</a><a id="facebook" class="button social" href="/api/auth/facebook/start?target=be" aria-disabled="true">Facebook</a></div>
+      <p class="small muted access-note">O registo de conta está disponível na app. O acesso a esta área é reservado a administradores.</p>
+    </section>
+    <section id="denied-panel" class="card login-card" hidden><p class="eyebrow">ACESSO RESTRITO</p><h2>A sua conta é de membro.</h2><p class="muted">Para aceder ao backoffice, precisa que lhe seja atribuído o perfil de administrador.</p><a class="button primary" href="/app/">Voltar à app ↗</a><button class="button secondary logout" type="button">Terminar sessão</button><p class="logout-status status" role="status"></p></section>
+    <section id="users-panel" hidden aria-labelledby="users-title">
+      <div class="page-heading"><div><p class="eyebrow">GESTÃO DA COMUNIDADE</p><h1 id="users-title">Utilizadores</h1><p class="muted">As pessoas que fazem parte da história.</p></div><div class="admin-account"><span id="admin-name"></span><button class="text-button logout" type="button">Terminar sessão</button></div></div>
+      <p class="logout-status status" role="status"></p>
+      <div class="card users-card"><div class="table-toolbar"><p><strong id="total">—</strong> <span class="muted">utilizadores</span></p><form id="search-form" role="search"><label class="sr-only" for="search">Pesquisar por nome ou email</label><input type="search" id="search" placeholder="Pesquisar nome ou email" maxlength="100"><button class="button secondary" type="submit">Pesquisar</button></form></div>
+        <p id="users-status" class="status" role="status" aria-live="polite"></p>
+        <div class="table-scroll"><table><caption class="sr-only">Utilizadores registados no OurPeople</caption><thead><tr><th scope="col">Nome</th><th scope="col">Email</th><th scope="col">Registo</th><th scope="col">Perfil</th><th scope="col">Data de criação</th></tr></thead><tbody id="users"></tbody></table></div>
+        <p id="empty" class="muted" hidden>Nenhum utilizador encontrado.</p>
+        <nav class="pagination" aria-label="Páginas de utilizadores"><button id="previous" class="button secondary" type="button" disabled>Anterior</button><span id="page" aria-live="polite"></span><button id="next" class="button secondary" type="button" disabled>Seguinte</button></nav>
+      </div>
+    </section>
+  </main>
+  <footer>OurPeople <span>Backoffice · Gestão de utilizadores</span></footer>
+</body>
+</html>
